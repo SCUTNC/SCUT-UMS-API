@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="http://cdn.bootcss.com/jquery/3.1.0/jquery.js"></script>
+    <script src="http://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.js"></script>
+    <link href="http://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.css" rel="stylesheet">
+</head>
+<style>
+    ul{
+        list-style: none;
+        display: inline-block;
+    }
+    input{
+        width:600px;
+    }
+</style>
+<body>
+<script>
+
+   function getAuthentication(){
+	   var args = GetUrl();
+    	var sendData={
+    			code:args['code']
+    	};
+    	$.ajax({
+            url:"/Demo/test/getAuthentication",
+            type:"post",
+            timeout:30000,
+            contentType:"application/json",
+            dataType:'json',
+            data:JSON.stringify(sendData),
+            success:function (backData) {
+                if(backData.result=="success")
+                {
+                    alert("成功");
+                    var user=backData.account;  //用户的中央认证帐号
+                }
+                else if(backData=="no authentication")
+                {
+                    alert("该用户未认证");
+                }
+                else if(backData=="fail")
+                {
+                    alert("code错误");
+                }
+              
+            }
+        });
+    
+    }
+
+ 
+    
+    
+  //获取url的参数
+    function GetUrl() {
+        var url = location.search; //获取url中"?"符后的字串
+        var theUrl = new Object();
+        if (url.indexOf("?") != -1) {
+            var str = url.substr(1);
+            substr = str.split("&");
+            for(var i = 0; i < substr.length; i ++)
+            {
+                theUrl[substr[i].split("=")[0]]=unescape(substr[i].split("=")[1]);
+            }
+        }
+        return theUrl;
+    }
+</script>
+</body>
+</html>

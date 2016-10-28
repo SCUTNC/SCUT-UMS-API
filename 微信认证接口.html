@@ -1,0 +1,41 @@
+<html lang="en"><head>
+    <meta charset="UTF-8">
+    <title></title>
+<style id="system" type="text/css">h1,h2,h3,h4,h5,h6,p,blockquote {    margin: 0;    padding: 0;}body {    font-family: "Helvetica Neue", Helvetica, "Hiragino Sans GB", Arial, sans-serif;    font-size: 13px;    line-height: 18px;    color: #737373;    margin: 10px 13px 10px 13px;}a {    color: #0069d6;}a:hover {    color: #0050a3;    text-decoration: none;}a img {    border: none;}p {    margin-bottom: 9px;}h1,h2,h3,h4,h5,h6 {    color: #404040;    line-height: 36px;}h1 {    margin-bottom: 18px;    font-size: 30px;}h2 {    font-size: 24px;}h3 {    font-size: 18px;}h4 {    font-size: 16px;}h5 {    font-size: 14px;}h6 {    font-size: 13px;}hr {    margin: 0 0 19px;    border: 0;    border-bottom: 1px solid #ccc;}blockquote {    padding: 13px 13px 21px 15px;    margin-bottom: 18px;    font-family:georgia,serif;    font-style: italic;}blockquote:before {    content:"C";    font-size:40px;    margin-left:-10px;    font-family:georgia,serif;    color:#eee;}blockquote p {    font-size: 14px;    font-weight: 300;    line-height: 18px;    margin-bottom: 0;    font-style: italic;}code, pre {    font-family: Monaco, Andale Mono, Courier New, monospace;}code {    background-color: #fee9cc;    color: rgba(0, 0, 0, 0.75);    padding: 1px 3px;    font-size: 12px;    -webkit-border-radius: 3px;    -moz-border-radius: 3px;    border-radius: 3px;}pre {    display: block;    padding: 14px;    margin: 0 0 18px;    line-height: 16px;    font-size: 11px;    border: 1px solid #d9d9d9;    white-space: pre-wrap;    word-wrap: break-word;}pre code {    background-color: #fff;    color:#737373;    font-size: 11px;    padding: 0;}@media screen and (min-width: 768px) {    body {        width: 748px;        margin:10px auto;    }}</style><style id="custom" type="text/css"></style></head>
+<body marginheight="0"><h1>微信企业号认证接口</h1>
+<h4>备注:在Demo里面的js方法要放到在微信打开的首页里面。</h4>
+<h2>请求说明</h2>
+<h3>请求方式:</h3>
+<p>POST
+
+</p>
+<p>dataType:"json"
+
+</p>
+<p>Content-Type: application/json
+
+</p>
+<h3>URL:</h3>
+<p><a href="http://ghxs.88u.cas.scut.edu.cn/Wisdom/wx/getAuthentication">http://ghxs.88u.cas.scut.edu.cn/Wisdom/wx/getAuthentication</a>
+
+</p>
+<h3>请求包结构体为:</h3>
+<pre><code>{
+"code":在企业号里面打开页面微信会提供一个code(String)
+}</code></pre>
+<hr>
+<h3>返回结果</h3>
+<p>成功时：
+</p>
+<pre><code>{
+" account":用户的中央认证帐号 (String)
+" result":"success"(发送成功)
+}</code></pre>
+<p>失败时：
+</p>
+<pre><code>{
+
+"result":"fail"(code错误)
+
+}</code></pre>
+</body></html>

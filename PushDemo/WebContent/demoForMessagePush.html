@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="http://cdn.bootcss.com/jquery/3.1.0/jquery.js"></script>
+    <script src="http://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.js"></script>
+    <link href="http://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.css" rel="stylesheet">
+</head>
+<style>
+    ul{
+        list-style: none;
+        display: inline-block;
+    }
+    input{
+        width:600px;
+    }
+</style>
+<body>
+<button>增加一个消息数组</button>
+<ul class="main">
+    <li><input type="text" placeholder="账号"></li>
+    <li><input type="text" placeholder="密码"></li>
+    <li><input type="text" placeholder="消息所属服务"></li>
+    <li><input type="text" placeholder="所推送人群标签号(long)（群发的时候传对应标签号，单发就传0）"></li>
+    <li><input type="text" placeholder="目标用户的学号(String)（针对某个用户推送消息的时候传对应学号，群发时传字符串”0”）"></li>
+    <li><input type="text" placeholder="是否推给APP的标记(int)（0：不推给APP;1：推给APP）"></li>
+    <li><input type="text" placeholder="是否推给微信的标记(int)（0：不推给微信;1：推给微信）"></li>
+    <li><input type="text" placeholder="是否推给QQ的标记(int)（0：不推给QQ;1：推给QQ）"></li>
+    <li><input type="text" placeholder="是否推给短信的标记(int)（0：不推给短信;1：推给短信）"></li>
+    <li><input type="text" placeholder="是否推给邮箱的标记(int)（0：不推给用户邮箱;1：推给用户邮箱）"></li>
+    <li><span>消息数组</span><ul class="messages">
+        <li>
+            <input type="text" placeholder="消息标题（String）（没有就传””,即空字符串" >
+            <input type="text" placeholder="消息所在网页url（String）（没有就传””,即空字符串）">
+            <input type="text" placeholder="消息简介(String)（发纯文本消息，以上两个和下面那个为空即可）">
+            <input type="text" placeholder="图片地址(String) （没有就传””,即空字符串）">
+        </li>
+    </ul></li>
+</ul>
+<input style="width: auto" type="button" class="btn btn-default" value="群发" onclick="thirdAccess()">
+<script>
+    $("button").click(function () {
+        $(".main").append($("  <li><span>消息数组</span><ul class='messages'>"+
+                " <li>"+
+        "<input type='text' placeholder='消息标题（String）（没有就传””,即空字符串'>"+
+        " <input type='text' placeholder='消息所在网页url（String）（没有就传””,即空字符串）'>"+
+        " <input type='text' placeholder='消息简介(String)（发纯文本消息，以上两个和下面那个为空即可）'>"+
+        " <input type='text' placeholder='图片地址(String) （没有就传””,即空字符串）'>"+
+        " </li>"+
+        "</ul></li>"));
+
+    });
+      
+  
+
+    function thirdAccess() {
+    	  var messages=[];
+    	    $(".messages").each(function () {
+    	        console.log($(this).find("input:nth-child(1)").val());
+    	        var messagesJson={
+    	            "title":$(this).find("input:nth-child(1)").val(),
+    	            "url":$(this).find("input:nth-child(2)").val(),
+    	            "summary":$(this).find("input:nth-child(3)").val(),
+    	            "picture":$(this).find("input:nth-child(4)").val()
+    	        };
+
+    	        messages.push(messagesJson);
+    	    });
+        var sendData={
+            "account":$(".main>li:nth-child(1)").children().val(),
+            "password":$(".main>li:nth-child(2)").children().val(),
+            "serviceId":$(".main>li:nth-child(3)").children().val(),
+            "type":$(".main>li:nth-child(4)").children().val(),
+            "desAccount":$(".main>li:nth-child(5)").children().val(),
+            "isPushAPP":$(".main>li:nth-child(6)").children().val(),
+            "isPushWX":$(".main>li:nth-child(7)").children().val(),
+            "isPushQQ":$(".main>li:nth-child(8)").children().val(),
+            "isPushSMS":$(".main>li:nth-child(9)").children().val(),
+            "isPushMail":$(".main>li:nth-child(10)").children().val(),
+            "messages":messages,
+        };
+        $.ajax({
+            url:"/Demo/test/test",
+            type:"post",
+            timeout:30000,
+            contentType:"application/json",
+            dataType:'json',
+            data:JSON.stringify(sendData),
+            success:function (backData) {
+                if(backData.result=="success")
+                {
+                    alert("发送成功");
+                    var usersArray=backData.users;
+                }
+                else if(backData=="wrong account or password ")
+                {
+                    alert("账号或密码错误");
+                }
+                else if(backData=="fail")
+                {
+                    alert("发送失败");
+                }
+                else if(backData=="no permission")
+                {
+                    alert("没有发送权限");
+                }
+            }
+        });
+    }
+</script>
+</body>
+</html>
