@@ -1,11 +1,9 @@
 # 华工信使第三方调用API
 "华工信使"是由华南理工大学建设的统一消息推送平台，面向校内用户提供消息推送服务。校内第三方应用，可通过该平台向校内用户进行包括华工信使、社交网络（微信企业号、手机QQ公众号）、短信、电子邮件等形式的消息推送。
 
-[Toc]
-
 ## 第三方集成身份认证接口
 接入华南理工大学统一身份认证的第三WebAPP，可通过添加"华工信使第三方放认证接口"实现与华工信使APP、华南理工大学微信企业号及华南理工大学手机QQ公众号进行集成。
-
+****
 ### 手机QQ公众号认证接口
 
 > 备注:在Demo里面的js方法要放到在QQ打开的首页里面。
@@ -43,7 +41,7 @@
   "result":"fail" //code错误
 }
 ```
-
+***
 ### 微信企业号认证接口
 
 #### 请求说明
@@ -69,25 +67,20 @@
     " result":"success" //(发送成功)
     }
 ```
-
 失败时：
 ```json
   {
     "result":"fail" // code错误
   }
 ```
-
+***
 ## 第三方可推送`服务`与`标签`接口
-
-
-
 ### 请求说明
     请求方式:POST
     dataType:"json"
     Content-Type: application/json
 ### URL:
     http://ghxs.88u.cas.scut.edu.cn/Wisdom/message/getAuth
-
 ### 请求包结构体为:
 ```json
     {
@@ -95,10 +88,8 @@
          "password":" "  //密码（String）（另外方式告知）
     }
 ```
-
 ###返回结果
-成功时：
-```json
+成功时：`json
     {
       " services": [         //所能推送的服务
         {
@@ -118,7 +109,6 @@
         " result":" wrong account or password " //账号或密码错误
     }
 ```
-
 ## 消息发送接口
 ### 请求说明
     请求方式:POST
@@ -126,7 +116,6 @@
     Content-Type: application/json
 ### URL:
     http://ghxs.88u.cas.scut.edu.cn/Wisdom/message/thirdAccess
-
 ### 请求包结构体为:
 ```json
   {
@@ -143,7 +132,7 @@
     "isPushMail":"" //是否推给邮箱的标记(int)（0：不推给用户邮箱;1：推给用户邮箱）
   }
 ```
-#### messages中的每个对象都有以下属性：
+> messages中的每个对象都有以下属性：
 ```json
   {
      "title":"",    //消息标题（String）（没有就传"",即空字符串）
@@ -161,28 +150,17 @@
     }
 ```
 失败时：
-
-``on
+```json
     {
         "result":" wrong account or password "  //账号或密码错误
     }
 ```
-
 ```json
   {
     "result":"fail"  //发送失败
   }
 ```
 
-```json
-  {
-     "result":" wrong account or password "  //账号或密码错误
-   }
-```
-```json
-   {
-      "result":"fail"  //发送失败
-   }
-```
+
 
 
