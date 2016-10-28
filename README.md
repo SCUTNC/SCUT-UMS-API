@@ -5,12 +5,12 @@
 接入华南理工大学统一身份认证的第三WebAPP，可通过添加"华工信使第三方放认证接口"实现与华工信使APP、华南理工大学微信企业号及华南理工大学手机QQ公众号进行集成。
 
 ****
-
-字符编码:UTF-8
+>  字符编码:UTF-8
 ****
 ### 手机QQ公众号认证接口
 
 > 备注:在Demo里面的js方法要放到在QQ打开的首页里面。
+> 跳转到指定页面时会带上参数code和apitype,如果是QQ访问,apitype=1
 
 #### 请求说明
     请求方式: POST
@@ -48,6 +48,8 @@
 ***
 ### 微信企业号认证接口
 
+> 备注:在Demo里面的js方法要放到在QQ打开的首页里面。
+> 跳转到指定页面时会带上参数code和apitype,如果是微信访问,apitype=2
 #### 请求说明
     请求方式: POST
     dataType:"json"
@@ -101,7 +103,7 @@
 成功时：
 ```json
     {
-      "services": [        //所能推送的服务
+      "services": [         //所能推送的服务
         {
           "serviceId":"",   //服务ID（long）
           "serviceName":""  //服务名称(String)
@@ -155,21 +157,21 @@
 成功时：
 ```json
     {
-        "users":"",        //所推送用户的学号数组 (JSONArray)
+        "users":[],        //所推送用户的学号数组 (JSONArray)
         "result":"success" //(发送成功)
     }
 ```
 失败时：
 ```json
-    {
-        "result":" wrong account or password "  //账号或密码错误
-    }
+{
+        "result":"title is too long"  (标题太长(超过16个字))
+        "result":"summary is too long" (图文最多60字,纯文字最多400字)
+        "result":" wrong account or password "(账号或密码错误)
+        "result":"no permission" (没有权限)
+        "result":"no such user" (单发时学号错误)
+}
 ```
-```json
-  {
-    "result":"fail"  //发送失败
-  }
-```
+
 
 
 
@@ -177,8 +179,8 @@
 
 
 #第三方拾卡寻人接入
-###URL:
-http://ghxs.88u.cas.scut.edu.cn/Wisdom/message/findPersonForThird  
+### URL:
+    http://ghxs.88u.cas.scut.edu.cn/Wisdom/message/findPersonForThird 
 
 ######在URL连接后面接上token链接到我们的web页面,token里面的特殊字符需要转义  
 例如："#" 需要转义成 "%23"
