@@ -164,11 +164,11 @@
 失败时：
 ```json
 {
-        "result":"title is too long"  (标题太长(超过16个字))
-        "result":"summary is too long" (图文最多60字,纯文字最多400字)
-        "result":" wrong account or password "(账号或密码错误)
-        "result":"no permission" (没有权限)
-        "result":"no such user" (单发时学号错误)
+        "result":"title is too long"            //(标题太长(超过16个字))
+        "result":"summary is too long"          //(图文最多60字,纯文字最多400字)
+        "result":" wrong account or password "  //(账号或密码错误)
+        "result":"no permission"                // (没有权限)
+        "result":"no such user"                 //(单发时学号错误)
 }
 ```
 
