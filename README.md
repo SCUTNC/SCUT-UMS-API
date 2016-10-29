@@ -31,10 +31,10 @@
 成功时：
 ```json
 {
-"userId":""  //用户的学工号 (String)
-"types":["","",""] //用户所在的组的id (JSONArray)
-"account":"" //用户的中央认证帐号 (String)
-"result":"success"//(发送成功)
+"userId":""         //用户的学工号 (String)
+"types":["","",""]  //用户所在的组的id (JSONArray)
+"account":""        //用户的中央认证帐号 (String)
+"result":"success"  //(发送成功)
 }
 ```
 ```json
@@ -72,10 +72,10 @@
 成功时：
 ```json
 {
-"userId":""  //用户的学工号 (String)
-"types":["","",""] //用户所在的组的id (JSONArray)
-"account":"" //用户的中央认证帐号 (String)
-"result":"success"//(发送成功)
+"userId":""         //用户的学工号 (String)
+"types":["","",""]  //用户所在的组的id (JSONArray)
+"account":""        //用户的中央认证帐号 (String)
+"result":"success"  //(发送成功)
 }
 ```
 失败时：
