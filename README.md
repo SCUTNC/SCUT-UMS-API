@@ -7,6 +7,7 @@
 ****
 >  字符编码:UTF-8
 ****
+
 ### 手机QQ公众号认证接口
 
 > 备注:在Demo里面的js方法要放到在QQ打开的首页里面。
@@ -30,8 +31,10 @@
 成功时：
 ```json
 {
-  "account":" ",      //用户的中央认证帐号 (String)
-  "result":"success"  //(发送成功)
+"userId":""  //用户的学工号 (String)
+"types":["","",""] //用户所在的组的id (JSONArray)
+"account":"" //用户的中央认证帐号 (String)
+"result":"success"//(发送成功)
 }
 ```
 ```json
@@ -68,10 +71,12 @@
 #### 返回结果
 成功时：
 ```json
-    {
-    "account":"",      //用户的中央认证帐号 (String)
-    "result":"success" //(发送成功)
-    }
+{
+"userId":""  //用户的学工号 (String)
+"types":["","",""] //用户所在的组的id (JSONArray)
+"account":"" //用户的中央认证帐号 (String)
+"result":"success"//(发送成功)
+}
 ```
 失败时：
 ```json
