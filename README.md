@@ -31,9 +31,9 @@
 成功时：
 ```json
 {
-"userId":""         //用户的学工号 (String)
-"types":["","",""]  //用户所在的组的id (JSONArray)
-"account":""        //用户的中央认证帐号 (String)
+"userId":"",         //用户的学工号 (String)
+"types":["","",""],  //用户所在的组的id (JSONArray)
+"account":"",        //用户的中央认证帐号 (String)
 "result":"success"  //(发送成功)
 }
 ```
@@ -72,9 +72,9 @@
 成功时：
 ```json
 {
-"userId":""         //用户的学工号 (String)
-"types":["","",""]  //用户所在的组的id (JSONArray)
-"account":""        //用户的中央认证帐号 (String)
+"userId":"",         //用户的学工号 (String)
+"types":["","",""],  //用户所在的组的id (JSONArray)
+"account":"",        //用户的中央认证帐号 (String)
 "result":"success"  //(发送成功)
 }
 ```
@@ -170,13 +170,28 @@
 ```json
 {
         "result":"title is too long"            //(标题太长(超过16个字))
+}
+```
+```json
+{
         "result":"summary is too long"          //(图文最多60字,纯文字最多400字)
+}
+```
+```json
+{
         "result":" wrong account or password "  //(账号或密码错误)
+}
+```
+```json
+{
         "result":"no permission"                // (没有权限)
+}
+```
+```json
+{
         "result":"no such user"                 //(单发时学号错误)
 }
 ```
-
 
 
 
