@@ -19,7 +19,7 @@
     Content-Type: application/json
 
 #### URL:
-    http://ghxs.88u.cas.scut.edu.cn/Wisdom/qq/getAuthentication
+    https://ums.scut.edu.cn/Wisdom/qq/getAuthentication
 
 #### 请求包结构体为:
 ```json
@@ -59,7 +59,7 @@
     Content-Type: application/json
 
 #### URL:
-    http://ghxs.88u.cas.scut.edu.cn/Wisdom/wx/getAuthentication
+    https://ums.scut.edu.cn/Wisdom/wx/getAuthentication
 
 #### 请求包结构体为:
 ```json
@@ -96,7 +96,7 @@
     dataType:"json"
     Content-Type: application/json
 ### URL:
-    http://ghxs.88u.cas.scut.edu.cn/Wisdom/message/getAuth
+    https://ums.scut.edu.cn/Wisdom/message/getAuth
 ### 请求包结构体为:
 ```json
     {
@@ -132,7 +132,7 @@
     dataType:"json"
     Content-Type: application/json
 ### URL:
-    http://ghxs.88u.cas.scut.edu.cn/Wisdom/message/thirdAccess
+    https://ums.scut.edu.cn/Wisdom/message/thirdAccess
 ### 请求包结构体为:
 ```json
   {
@@ -200,9 +200,8 @@
 
 #第三方拾卡寻人接入
 ### URL:
-    http://ghxs.88u.cas.scut.edu.cn/Wisdom/message/findPersonForThird 
+    https://ums.scut.edu.cn/Wisdom/message/findPersonForThird 
 
-######在URL连接后面接上token链接到我们的web页面,token里面的特殊字符需要转义  
-例如："#" 需要转义成 "%23"
+#### 
 
-url例子:http://ghxs.88u.cas.scut.edu.cn/Wisdom/message/findPersonForThird?token=AQIC5wM2LY4Sfcwn6zWkLHgfZ94EhVY2LGfDkA3RXRgyPJQ=@AAJTSQACMDE=%23
+
