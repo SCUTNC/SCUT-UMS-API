@@ -30,7 +30,7 @@ public class TestUrlController {
 			@RequestBody JSONObject json) {
 
 		try {
-			URL url= new URL("http://ghxs.88u.cas.scut.edu.cn/Wisdom/wx/getAuthentication");
+			URL url= new URL("https://ums.scut.edu.cn/Wisdom/wx/getAuthentication");
 			HttpURLConnection conn = null;
 			conn = (HttpURLConnection)url.openConnection();
 			conn.setRequestProperty("accept", "*/*");
