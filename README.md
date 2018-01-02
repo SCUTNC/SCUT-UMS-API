@@ -204,10 +204,3 @@
 
 
 
-
-
-#第三方拾卡寻人接入
-### URL:
-    https://ums.scut.edu.cn/Wisdom/message/findPersonForThird 
-
-#### 根据华南理工大学的中央认证系统接入
