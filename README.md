@@ -32,7 +32,9 @@
 ```json
 {
 "userId":"",         //用户的学工号 (String)
-"types":["","",""],  //用户所在的组的id (JSONArray)
+"type":"",           //用户所在的组的 (String)(本科生、研究生、教职工）
+"department":"",     //用户所在的单位名称(String)
+"name":"",           //姓名(String)
 "account":"",        //用户的中央认证帐号 (String)
 "cardId":"",        //用户的一卡通卡号 (String)
 "result":"success"  //(发送成功)
@@ -74,7 +76,9 @@
 ```json
 {
 "userId":"",         //用户的学工号 (String)
-"types":["","",""],  //用户所在的组的id (JSONArray)
+"type":"",           //用户所在的组的 (String)(本科生、研究生、教职工）
+"department":"",     //用户所在的单位名称(String)
+"name":"",           //姓名(String)
 "account":"",        //用户的中央认证帐号 (String)
 "cardId":"",        //用户的一卡通卡号 (String)
 "result":"success"  //(发送成功)
