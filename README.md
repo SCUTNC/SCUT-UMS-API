@@ -124,8 +124,14 @@
       "labels": [           //所能推送的标签
         {
           "labelId":"",     //标签ID（long）
-          "labelName":""    //标签姓名(String)
-        }]
+          "labelName":""    //标签名称(String)
+        }],
+      "departments": [      //所能推送的部门
+        {
+          "departmentId":"",  //部门ID (long)
+          "departmentName":"" //部门名称(String)
+        }
+      ]
     }
 ```
 失败时：
@@ -208,5 +214,132 @@
 ```
 
 
+***
+## 获取用户信息
+
+只能获取权限范围内的用户信息  
 
 
+### 请求说明
+    请求方式:POST
+    dataType:"json"
+    Content-Type: application/json
+### URL:
+    https://ums.scut.edu.cn/Wisdom//api/getUserDepartmentInfo
+### 请求包结构体为:
+```json
+    {
+         "account":" ",  //账号（String）(另外方式告知)
+         "password":" ",  //密码（String）（另外方式告知）
+         "userId":""     //认证账号或学工号 (String)
+    }
+```
+###返回结果
+成功时：
+```json
+    {
+    "code": 200,                                  //返回码
+    "msg": "success",                            //成功
+    "data": {
+        "departmentName": "信息网络工程研究中心",  //所在部门名称
+        "lableList": [                           //用户所在的标签列表
+            {
+                "id": 787721,                    //标签ID
+                "name": "默认标签"       //标签名称
+            }
+        ]
+    }
+    }
+```
+失败时：
+```json
+    {
+       "code": 404,              //返回码
+       "msg": "invalid userId"  //找不到该账号或没权限查看该账号的信息
+    }
+```
+```json
+    {
+        "code": 403,                           //返回码
+        "msg":" wrong account or password " //账号或密码错误
+    }
+```
+
+
+***
+## 导入列表获取用户权限
+
+如导入的账号与手机号匹配，则直接授权，否则需要超级管理员审核后才能授权 
+（此接口可更新用户在系统中的手机号）
+
+### 请求说明
+    请求方式:POST
+    dataType:"json"
+    Content-Type: application/json
+### URL:
+    https://ums.scut.edu.cn/Wisdom/api/addUserIntoLabel
+### 请求包结构体为:
+```json
+    {
+         "account":" ",  //账号（String）(另外方式告知)
+         "password":" ",  //密码（String）（另外方式告知）
+         "userList":[      //需要导入的用户列表
+         {
+             "userId":"",        //认证账号或学工号
+             "phoneNumber":""    //手机号
+         }
+         ]    
+    }
+```
+###返回结果
+成功时：
+```json
+    {
+    "code": 200,                                  //返回码
+    "msg": "success"                             //成功
+    }
+```
+失败时：
+```json
+    {
+       "code": 401,              //返回码
+       "msg": "please add user data"  //用户列表为空
+    }
+```
+```json
+    {
+       "code": 401,              //返回码
+       "msg": "userid duplication"  //用户列表存在重复数据，请先去重
+    }
+```
+```json
+    {
+       "code": 401,              //返回码
+       "msg": "no valid data"    //用户列表无有效数据 （账号不存在）
+    }
+```
+```json
+    {
+       "code": 401,              //返回码
+       "msg": "had invalid data",    //用户列表存在无效数据 （账号不存在）
+       "data":[""]                 //无效账号列表
+    }
+```
+```json
+    {
+        "code": 403,                           //返回码
+        "msg":" wrong account or password " //账号或密码错误
+    }
+```
+```json
+    {
+        "code": 403,                           //返回码
+        "msg":"please join the group"       //请先加入管理组
+    }
+```
+```json
+    {
+        "code": 500,                           //返回码
+        "msg":"System Error"                 //服务器错误
+    }
+```
